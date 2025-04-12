@@ -108,24 +108,88 @@ From the osTicket-Installation-Files folder:
 ![image](https://github.com/user-attachments/assets/32d6a4fb-b01c-4d36-82b1-b5a3842eb342)
 ![image](https://github.com/user-attachments/assets/2085a4c2-2021-4f21-86c0-2190777a2409)
 
+<h3>9.) Install osTicket</h3>
+
+.From the osTicket-Installation-Files folder:
+    .Unzip osTicket-v1.15.8.zip.<br>
+    .Copy the upload folder into C:\inetpub\wwwroot.<br>
+    .Rename the upload folder to osTicket<br>
+    .Reload IIS (Stop and Start the server).<br>
+
+![image](https://github.com/user-attachments/assets/a31e5ab3-6363-485b-b0c5-0bdbc92afcc3)
+![image](https://github.com/user-attachments/assets/a99eef59-2461-4864-926e-f3e87d1fe94a)
+![image](https://github.com/user-attachments/assets/2b291d38-5caa-407e-8560-0c4b590b109a)
+
+<h3>10.) Configure osTicket</h3>
+.Open IIS:<br>
+Navigate to Sites -> Default -> osTicket.<br>
+On the right, click *Browse :80.<br>
+
+![image](https://github.com/user-attachments/assets/bb2f48a5-9db6-4172-b2cf-24f8af22741d)
+![image](https://github.com/user-attachments/assets/9853d4a9-d96b-4e24-8df9-fe6ad0efc88c)
 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+.Note extensions that are not enabled. Go back to IIS:<br>
+ .Navigate to Sites -> Default -> osTicket.<br>
+ .Double-click PHP Manager -> Click Enable or disable an extension.<br>
+ .Enable the following extensions:<br>
+ .php_imap.dll<br>
+ .php_intl.dll<br>
+ .php_opcache.dll<br>
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+ ![image](https://github.com/user-attachments/assets/5d26f7d8-f234-4b03-9479-fd1e2545dffe)
+ ![image](https://github.com/user-attachments/assets/6f5de6b5-c21f-4583-ba5f-a5c30b91866c)
+ ![image](https://github.com/user-attachments/assets/c29b083d-c9c1-457b-8d2a-100a38498ffc)
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+<h3>11.) Update Configuration Files</h3>
+
+.Rename ost-config.php:<br>
+.From: C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php<br>
+.To: C:\inetpub\wwwroot\osTicket\include\ost-config.php.<br>
+.Assign Permissions:<br>
+.Disable inheritance -> Remove all permissions.<br>
+.Add new permissions -> Everyone -> Full control.<br>
+
+![image](https://github.com/user-attachments/assets/bd85a06b-dfd3-4abd-b251-db0c3a9c6a82)
+![image](https://github.com/user-attachments/assets/f6c6eb8c-761b-43ed-b0c4-46fba432b2f0)
+![image](https://github.com/user-attachments/assets/38089123-0b1e-4b92-b0b9-d01aca89af78)
+
+<h3>12.) Complete osTicket Setup</h3>
+
+.In the browser, continue the osTicket setup:<br>
+.Set Helpdesk Name.<br>
+.Set Default email (receives emails from customers).<br>
+
+![image](https://github.com/user-attachments/assets/4f6c1894-c072-4193-a164-f4cb61d6fe0b)
+
+<h3>13.) Install HeidiSQL and Configure Database</h3>
+
+.From the osTicket-Installation-Files folder, install HeidiSQL.<br>
+.Open HeidiSQL:<br>
+.Create a new session: Username: root / Password: root.<br>
+.Connect to the session.<br>
+.Create a database named osTicket.<br>
+
+![image](https://github.com/user-attachments/assets/f3e62e3c-3488-4a0d-a5d0-aa40366fde92)
+![image](https://github.com/user-attachments/assets/875a4e8c-079e-432d-8189-b1ef08a347e0)
+![image](https://github.com/user-attachments/assets/7a857346-86cb-4374-b9fe-67411c17b0bf)
+![image](https://github.com/user-attachments/assets/28fba029-12ac-49be-8acd-36a7cb12aa54)
+
+<h3>14.) Finalize osTicket Installation</h3>
+
+.In the browser, complete the setup:<br>
+.MySQL Database: osTicket<br>
+.MySQL Username: root<br>
+.MySQL Password: root<br>
+.Click Install Now<br>
+
+![image](https://github.com/user-attachments/assets/567ff6ab-b078-4b6d-a7da-b8e0891efdda)
+
+<h3>15.) Verify Installation</h3>
+
+Log into your help desk login page: http://localhost/osTicket/scp/login.php.
+
+![image](https://github.com/user-attachments/assets/8334500d-83f9-49f9-bda3-78ea22c3eaae)
+
+<h2>Conclusion</h2>
+You have now successfully installed and configured osTicket on your virtual machine. Your help desk system is now ready to use.
